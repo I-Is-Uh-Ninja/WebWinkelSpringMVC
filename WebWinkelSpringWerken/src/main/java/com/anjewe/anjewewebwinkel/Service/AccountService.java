@@ -28,7 +28,7 @@ private static final Logger log = LoggerFactory.getLogger(AccountService.class);
     
       
     @Autowired
-    protected GenericDaoImpl<Account, Long> accountDao = new AccountDao();
+    protected GenericDaoImpl<Account, Long> accountDao;
     @Autowired
     Account account; 
     
