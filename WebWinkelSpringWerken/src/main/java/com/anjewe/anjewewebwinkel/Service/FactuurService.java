@@ -51,7 +51,7 @@ private static final Logger log = LoggerFactory.getLogger(FactuurService.class);
     }
 
     @Override
-    public Long zoekNaarBean(Factuur t) {
+    public Long zoekNaarBean(Factuur factuur) {
         Long factuurId = (Long)factuurDao.insert(factuur); 
         return factuurId;
     }
@@ -91,6 +91,11 @@ private static final Logger log = LoggerFactory.getLogger(FactuurService.class);
     public int verwijderAlleBeans() {
         int verwijderd = factuurDao.deleteAll(Factuur.class);   
         return verwijderd;
+    }
+
+    @Override
+    public boolean isBeanUniek(long id, String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15-sep-2016, 22:39:03
+    Author     : Wendy
+*/
+
+h1{
+	color:greenyellow;
+        font-size: 28px;
+        font-family:Arial, Verdana, sans-serif;
+         
+}
+
+h2, h3 {
+        color:darksalmon;
+}
+
+a{
+    color: #555;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}

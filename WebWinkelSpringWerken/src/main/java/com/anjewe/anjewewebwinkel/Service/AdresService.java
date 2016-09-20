@@ -43,7 +43,7 @@ public class AdresService implements GenericServiceInterface <Adres, Long>{
     }
 
     @Override
-    public Long voegNieuweBeanToe(Adres t) {
+    public Long voegNieuweBeanToe(Adres adres) {
         Long adresId = adresDao.insert(adres);
         return adresId;
     }
@@ -96,6 +96,11 @@ public class AdresService implements GenericServiceInterface <Adres, Long>{
     public int verwijderAlleBeans() {
         int rowsAffected = adresDao.deleteAll(Adres.class);
         return rowsAffected; 
+    }
+
+    @Override
+    public boolean isBeanUniek(long id, String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
 }

@@ -7,8 +7,10 @@ package com.anjewe.anjewewebwinkel.Service;
 
 
 import com.anjewe.anjewewebwinkel.DAOGenerics.GenericDaoImpl;
+import com.anjewe.anjewewebwinkel.DAOs.BestellingArtikelDao;
 import com.anjewe.anjewewebwinkel.DAOs.BestellingDao;
 import com.anjewe.anjewewebwinkel.POJO.Bestelling;
+import com.anjewe.anjewewebwinkel.POJO.BestellingArtikel;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -23,7 +25,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Excen
  */
 
-@Transactional
 @Service
 public class BestellingService implements GenericServiceInterface <Bestelling, Long> {
     
@@ -34,7 +35,10 @@ public class BestellingService implements GenericServiceInterface <Bestelling, L
     private static final Logger testLogger = (Logger) LoggerFactory.getLogger("com.webshop.test");
     
     @Autowired
-    protected GenericDaoImpl<Bestelling, Long> bestellingDao = new BestellingDao(); 
+    protected BestellingArtikelDao bestellingArtikelDao;
+    
+    @Autowired
+    protected GenericDaoImpl<Bestelling, Long> bestellingDao;
     
     @Autowired
     Bestelling bestelling;
@@ -84,7 +88,6 @@ public class BestellingService implements GenericServiceInterface <Bestelling, L
             gewijzigdeBestelling.setFactuur(t.getFactuur());
             gewijzigdeBestelling.setId(t.getId());
             gewijzigdeBestelling.setKlant(t.getKlant());
-            gewijzigdeBestelling.setDatum(t.getDatum());
             gewijzigdeBestelling.setBestellingDatum(t.getBestellingDatum());
             gewijzigdeBestelling.setBestellingArtikellen(t.getBestellingArtikellen());
         }
@@ -104,7 +107,17 @@ public class BestellingService implements GenericServiceInterface <Bestelling, L
         return rowsAffected;
     }
 
-
+    // Optionele bestellingArtikel lijstzoekmethode
+    
+    public ArrayList<BestellingArtikel> zoekBestellingArtikelByBestellingId(Long Id){
+        return bestellingArtikelDao.readByBestellingId(Id);
+                
+    }
+    
+    
+    
+    
+    
     /*
     
     Scanner scanner = new Scanner(System.in);
@@ -402,6 +415,11 @@ public class BestellingService implements GenericServiceInterface <Bestelling, L
     }
 
 */    
+
+    @Override
+    public boolean isBeanUniek(long id, String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
 }
 

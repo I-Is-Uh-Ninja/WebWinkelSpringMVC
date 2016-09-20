@@ -72,6 +72,8 @@ public class ArtikelService implements GenericServiceInterface <Artikel, Long> {
         if (gewijzigdArtikel!= null){
             gewijzigdArtikel.setArtikelNaam(artikel.getArtikelNaam());
             gewijzigdArtikel.setArtikelPrijs(artikel.getArtikelPrijs());
+            gewijzigdArtikel.setOmschrijving(artikel.getOmschrijving());
+            gewijzigdArtikel.setArtikelNummer(artikel.getArtikelNummer());
         }
         
          artikelDao.update(gewijzigdArtikel); 
@@ -88,6 +90,11 @@ public class ArtikelService implements GenericServiceInterface <Artikel, Long> {
     public int verwijderAlleBeans() {
         int verwijderd = artikelDao.deleteAll(Artikel.class); 
         return verwijderd;
+    }
+
+    @Override
+    public boolean isBeanUniek(long id, String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 } // eind artikelcontroller
